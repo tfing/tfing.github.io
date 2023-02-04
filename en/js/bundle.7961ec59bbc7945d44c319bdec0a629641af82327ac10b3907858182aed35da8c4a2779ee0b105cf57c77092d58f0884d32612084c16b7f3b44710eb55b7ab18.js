@@ -9,8 +9,8 @@ const pageHasLoaded = 'DOMContentLoaded';
 const imageAltClass = 'img_alt';
 
 
-const defaultSiteLanguage = 'en-us';
-const baseURL = 'http://example.org/';
+const defaultSiteLanguage = 'en';
+const baseURL = 'https://tfing.github.io/';
 const searchFieldClass = '.search_field';
 const searchClass = '.search';
 const goBackClass = 'button_back';
@@ -28,9 +28,9 @@ const noMatchesFound = 'No results found';
 const doc = document.documentElement;
 const inline = ":inline";
 // variables read from your hugo configuration
-let showImagePosition = "<no value>";
+let showImagePosition = "false";
 
-const showImagePositionLabel = '<no value>';
+const showImagePositionLabel = 'Figure';
 
 function isObj(obj) {
   return (obj && typeof obj === 'object' && obj !== null) ? true : false;

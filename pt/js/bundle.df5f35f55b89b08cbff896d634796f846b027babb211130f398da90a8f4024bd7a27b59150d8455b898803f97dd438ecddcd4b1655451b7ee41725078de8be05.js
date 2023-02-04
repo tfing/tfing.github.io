@@ -9,28 +9,28 @@ const pageHasLoaded = 'DOMContentLoaded';
 const imageAltClass = 'img_alt';
 
 
-const defaultSiteLanguage = 'zh-tw';
-const baseURL = '/';
+const defaultSiteLanguage = 'en';
+const baseURL = 'https://tfing.github.io/';
 const searchFieldClass = '.search_field';
 const searchClass = '.search';
 const goBackClass = 'button_back';
 const lineClass = '.line';
 
 // defined in i18n / translation files
-const quickLinks = 'Results';
-const searchResultsLabel = 'Search Results';
-const shortSearchQuery = 'Query is too short'
-const typeToSearch = 'Type to search';
-const noMatchesFound = 'No results found';
+const quickLinks = 'Resultados';
+const searchResultsLabel = 'Resultados da pesquisa';
+const shortSearchQuery = 'A consulta é muito curta'
+const typeToSearch = 'Digite para pesquisar';
+const noMatchesFound = 'Nenhum resultado encontrado';
 
 ;
 // global variables
 const doc = document.documentElement;
 const inline = ":inline";
 // variables read from your hugo configuration
-let showImagePosition = "<no value>";
+let showImagePosition = "false";
 
-const showImagePositionLabel = '<no value>';
+const showImagePositionLabel = 'Figure';
 
 function isObj(obj) {
   return (obj && typeof obj === 'object' && obj !== null) ? true : false;
