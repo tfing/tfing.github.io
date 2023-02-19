@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tfing</title>
-    <link>https://tfing.github.io/</link>
-    <description>Recent content on tfing</description>
+    <title>Posts on tfing</title>
+    <link>https://tfing.github.io/posts/</link>
+    <description>Recent content in Posts on tfing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://tfing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Feb 2023 14:29:53 +0800</lastBuildDate><atom:link href="https://tfing.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>矛盾的想法</title>
       <link>https://tfing.github.io/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
