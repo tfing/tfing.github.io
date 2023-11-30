@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tfing</title>
-    <link>https://tfing.github.io/</link>
-    <description>Recent content on tfing</description>
+    <title></title>
+    <link>/</link>
+    <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-tw</language>
-    <lastBuildDate>Wed, 29 Nov 2023 03:04:54 -0500</lastBuildDate><atom:link href="https://tfing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 03:04:54 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Usage example of Linux Mailbox framework - MTK ADSP IPC</title>
-      <link>https://tfing.github.io/posts/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</link>
+      <link>/posts/usage-example-of-linux-mailbox-framework/</link>
       <pubDate>Wed, 29 Nov 2023 03:04:54 -0500</pubDate>
       
-      <guid>https://tfing.github.io/posts/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</guid>
+      <guid>/posts/usage-example-of-linux-mailbox-framework/</guid>
       <description>Document and source code 🔗The offcial kernel mailbox framework document: https://docs.kernel.org/driver-api/mailbox.html
 There&amp;rsquo;re 2 main part mentioned in the doc, Controller driver and Client driver. The implementation of the framework on the MTK ADSP IPC can be found at these links.
 Controller driver: https://elixir.bootlin.com/linux/latest/source/drivers/mailbox/mtk-adsp-mailbox.c
@@ -24,19 +23,28 @@ Overview of MTK ADSP IPC 🔗The overall architecture of the MTK ADSP IPC can be
     
     <item>
       <title>矛盾的想法</title>
-      <link>https://tfing.github.io/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
+      <link>/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
       <pubDate>Fri, 17 Feb 2023 14:29:53 +0800</pubDate>
       
-      <guid>https://tfing.github.io/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</guid>
-      <description>從 http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html 看到了這兩段文字。 3、 我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。 我担心编</description>
+      <guid>/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</guid>
+      <description>從 http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html 看到了這兩段文字。
+3、 我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。
+我担心编程会变得太无聊，因为你没有机会做任何新鲜事。你的兴奋来自于看到机器产生出来的有趣结果，而不是来自创造新事物的过程。现在的乐趣变成，当你完成无聊的工作后，会突然得到一个很棒的结果，但在以前，工作本身并不乏味。
+&amp;ndash; Donald Knuth
+4、 大多数编程不再是艺术，也不再是高级工程。大多数程序都是微不足道的：编码人员只需要理解某些特定的接口，然后编写一些逻辑和胶水代码。
+&amp;ndash; Antirez，Redis 的作者
+剛看完這兩段大師寫的文字，心中第一個想法就是 &amp;ldquo;是阿，現在的工作就是類似這樣，好像在做拼貼的工作，有點無聊啊。不曉得大師會有甚麼建議呢?&amp;rdquo; 就點進去引文的連結 https://vickiboykis.com/2022/12/05/the-cloudy-layers-of-modern-day-programming/ 裡面細看。 結果出乎意料的是，原來引用這兩段文字的作者，他藉著建立一個產品的經驗，最後想說的是在目前的時代，已經不是需要像大師說的藝術了。 而是他能夠在前人的基礎上建立新的應用，不用自己刻輪子。這邊看著也是很有道理，心裡又覺得被說服了。
+不過，回頭想到在一開始看到上面的文字時的想法和現在的想法，就覺得自己很容易被影響。就在稍微想一下，為什麼我會這樣呢? 感覺在看網路文章時，比較像是在看爽的。看到了某某大師觀點就會贊同，因為是大師嘛，感覺像是在上課一樣，大師說的我就信。 想照著大師說的努力一下，不過看過一段時間後就忘了。下次若看到另一位大師說了相反的觀點，也是心裡直接認同，朝著相反的方向也努力一下。 就這樣來來回回的，最後感覺自己看了不少東西也沒甚麼長進。
+自己是感覺好像是因為沒有甚麼中心思想，看到事情也沒甚麼感覺或想法，就覺得，&amp;ldquo;喔，有事情發生了&amp;rdquo;，&amp;ldquo;挖，討論好熱烈&amp;rdquo;。 等到有心裡認為有說服力的文章後就接受裡面的說法，當作自己看這件事的觀點。自己寫不出這麼有說服力的文字，文章裡的說法也符合以前知道的經驗和道理， 感覺事情就這樣定調就可以了。
+想了想後，覺得自己會這樣好像是因為沒有甚麼原則。只要不會真的影響到自己，很多事情看過就算了，沒有認真想過。而如果真的要探討，就覺得這樣也可以，那樣也可以。 沒有甚麼判斷的方法，只好聽聽別人怎麼說，看別人的想法。要來想想怎麼確認自己的生活原則了。</description>
     </item>
     
     <item>
       <title>First post</title>
-      <link>https://tfing.github.io/posts/first-post/</link>
+      <link>/posts/20230204-first/</link>
       <pubDate>Sat, 04 Feb 2023 14:29:53 +0800</pubDate>
       
-      <guid>https://tfing.github.io/posts/first-post/</guid>
+      <guid>/posts/20230204-first/</guid>
       <description>The first post of my new site.</description>
     </item>
     
