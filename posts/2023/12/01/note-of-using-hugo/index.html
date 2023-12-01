@@ -70,7 +70,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          185 words
+          200 words
         </span>
         <span class="split">
           ·
@@ -118,32 +118,32 @@ if (!doNotTrack) {
       <p>Record info/links/commands used to setup this site and post articles.</p>
 <p>offcial site: <a href="https://gohugo.io/getting-started/usage/" target="_blank" rel="noopener">https://gohugo.io/getting-started/usage/</a>
 markdown syntax: <a href="https://www.markdownguide.org/tools/hugo/" target="_blank" rel="noopener">https://www.markdownguide.org/tools/hugo/</a></p>
-<h2 id="add-post">Add post <a href="#add-post" class="anchor">🔗</a></h2><p><code>hugo new content/posts/&lt;post-name&gt;.md</code></p>
-<p>Use <code>&lt;!--more--&gt;</code> to identify the content showed at summary page.</p>
-<p>Add <code>showToc: true</code></p>
+<h2 id="add-post">Add post <a href="#add-post" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new content/posts/&lt;post-name&gt;.md<span style="color:#cd5555">`</span>
+</span></span></code></pre></div><p>Insert <code>&lt;!--more--&gt;</code> in the post to identify the content showed as summary.</p>
+<p>Add <code>showToc: true</code> in the head of post to add table of contents in the post.</p>
 <p>pre-view drafts: <code>hugo server -D</code></p>
 <h3 id="deploy">Deploy <a href="#deploy" class="anchor">🔗</a></h3><p>generate the public folder for deploy on Github.
 the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
-<p><code>HUGO_ENV=production hugo --config config.yaml,config.toml</code></p>
-<p>copy the generated public folder to the github page repo</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd mysite
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#00688b">HUGO_ENV</span>=production hugo --config config.yaml,config.toml
+</span></span></code></pre></div><p>copy the generated public folder to the github page repo</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#658b00">cd</span> mysite
 </span></span><span style="display:flex;"><span>rsync -ahv public/ ../tfing.github.io/ --delete --exclude=.git
-</span></span></code></pre></div><p>After copy done, commit and push to github.</p>
-<p>check <a href="https://tfing.github.io" target="_blank" rel="noopener">https://tfing.github.io</a> for the result</p>
+</span></span></code></pre></div><p>After copy done, commit and push to github.
+check <a href="https://tfing.github.io" target="_blank" rel="noopener">https://tfing.github.io</a> for the result.</p>
 <h2 id="update-theme">Update theme <a href="#update-theme" class="anchor">🔗</a></h2><p>do <code>hugo mod get -u</code></p>
 <h3 id="install-theme-by-hugo-module">Install theme by Hugo module <a href="#install-theme-by-hugo-module" class="anchor">🔗</a></h3><p>ref: <a href="https://scripter.co/hugo-modules-importing-a-theme/" target="_blank" rel="noopener">https://scripter.co/hugo-modules-importing-a-theme/</a></p>
 <ol>
 <li>Init the site to be a hugo module and create the config.toml file</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd mysite
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#658b00">cd</span> mysite
 </span></span><span style="display:flex;"><span>hugo mod init tfing.github.io/tfing
 </span></span><span style="display:flex;"><span>touch config.toml
 </span></span></code></pre></div><ol start="2">
 <li>add these lines in config.toml</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[module]
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[module]
 </span></span><span style="display:flex;"><span>  [[module.imports]]
-</span></span><span style="display:flex;"><span>    path = &#34;github.com/nodejh/hugo-theme-mini&#34;
+</span></span><span style="display:flex;"><span>    path = <span style="color:#cd5555">&#34;github.com/nodejh/hugo-theme-mini&#34;</span>
 </span></span></code></pre></div><ol start="3">
 <li>do <code>hugo server</code> to auto download the theme</li>
 </ol>
@@ -157,7 +157,7 @@ the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
 </li>
 <li>
 <p>track the big size file in the repo</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git lfs track &lt;file&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git lfs track &lt;file&gt;
 </span></span><span style="display:flex;"><span>git add &lt;file&gt;
 </span></span></code></pre></div><p>ref:https://blog.csdn.net/iningwei/article/details/120872620</p>
 </li>

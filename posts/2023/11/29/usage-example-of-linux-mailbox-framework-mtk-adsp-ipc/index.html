@@ -105,9 +105,9 @@ The implementation of the mailbox framework in the MTK ADSP IPC driver can be fo
 <a href="https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8186.dtsi#L1135" target="_blank" rel="noopener">https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8186.dtsi#L1135</a></p>
 <h1 id="overview-of-mtk-adsp-ipc">Overview of MTK ADSP IPC <a href="#overview-of-mtk-adsp-ipc" class="anchor">🔗</a></h1><p>The overall architecture of the MTK ADSP IPC depicts in the figure[1].
 there&rsquo;s a trick of probing the client driver. the client driver probe function is triggered by the device using the client driver.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>priv-&gt;ipc_dev = platform_device_register_data(&amp;pdev-&gt;dev, &#34;mtk-adsp-ipc&#34;,
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>priv-&gt;ipc_dev = <span style="color:#008b45">platform_device_register_data</span>(&amp;pdev-&gt;dev, <span style="color:#cd5555">&#34;mtk-adsp-ipc&#34;</span>,
 </span></span><span style="display:flex;"><span>						      PLATFORM_DEVID_NONE,
-</span></span><span style="display:flex;"><span>						      pdev, sizeof(*pdev));
+</span></span><span style="display:flex;"><span>						      pdev, <span style="color:#8b008b;font-weight:bold">sizeof</span>(*pdev));
 </span></span></code></pre></div><p>[1]<p class="markdown-image">
   <img src="/images/20231129-mtk-adsp-ipc-arch.png" alt="mtk-adsp-ipc-arch"  title="MTK ADSP IPC architecture" />
 </p></p>
