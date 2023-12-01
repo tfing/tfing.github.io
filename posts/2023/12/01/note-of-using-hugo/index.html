@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <title>Note of using Hugo | tfing</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Record info/links/commands used to setup this site and post articles.">
+<meta name="generator" content="Hugo 0.120.4">
+
+
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Note of using Hugo</h1>
+
+    <div class="tip">
+        <time datetime="2023-12-01 01:55:13 -0500 EST">Dec 1, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          185 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#add-post">Add post</a>
+      <ul>
+        <li><a href="#deploy">Deploy</a></li>
+      </ul>
+    </li>
+    <li><a href="#update-theme">Update theme</a>
+      <ul>
+        <li><a href="#install-theme-by-hugo-module">Install theme by Hugo module</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-go">Install go</a></li>
+    <li><a href="#update-hugo-binary">Update hugo binary</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p>Record info/links/commands used to setup this site and post articles.</p>
+<p>offcial site: <a href="https://gohugo.io/getting-started/usage/" target="_blank" rel="noopener">https://gohugo.io/getting-started/usage/</a>
+markdown syntax: <a href="https://www.markdownguide.org/tools/hugo/" target="_blank" rel="noopener">https://www.markdownguide.org/tools/hugo/</a></p>
+<h2 id="add-post">Add post <a href="#add-post" class="anchor">🔗</a></h2><p><code>hugo new content/posts/&lt;post-name&gt;.md</code></p>
+<p>Use <code>&lt;!--more--&gt;</code> to identify the content showed at summary page.</p>
+<p>Add <code>showToc: true</code></p>
+<p>pre-view drafts: <code>hugo server -D</code></p>
+<h3 id="deploy">Deploy <a href="#deploy" class="anchor">🔗</a></h3><p>generate the public folder for deploy on Github.
+the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
+<p><code>HUGO_ENV=production hugo --config config.yaml,config.toml</code></p>
+<p>copy the generated public folder to the github page repo</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd mysite
+</span></span><span style="display:flex;"><span>rsync -ahv public/ ../tfing.github.io/ --delete --exclude=.git
+</span></span></code></pre></div><p>After copy done, commit and push to github.</p>
+<p>check <a href="https://tfing.github.io" target="_blank" rel="noopener">https://tfing.github.io</a> for the result</p>
+<h2 id="update-theme">Update theme <a href="#update-theme" class="anchor">🔗</a></h2><p>do <code>hugo mod get -u</code></p>
+<h3 id="install-theme-by-hugo-module">Install theme by Hugo module <a href="#install-theme-by-hugo-module" class="anchor">🔗</a></h3><p>ref: <a href="https://scripter.co/hugo-modules-importing-a-theme/" target="_blank" rel="noopener">https://scripter.co/hugo-modules-importing-a-theme/</a></p>
+<ol>
+<li>Init the site to be a hugo module and create the config.toml file</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd mysite
+</span></span><span style="display:flex;"><span>hugo mod init tfing.github.io/tfing
+</span></span><span style="display:flex;"><span>touch config.toml
+</span></span></code></pre></div><ol start="2">
+<li>add these lines in config.toml</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[module]
+</span></span><span style="display:flex;"><span>  [[module.imports]]
+</span></span><span style="display:flex;"><span>    path = &#34;github.com/nodejh/hugo-theme-mini&#34;
+</span></span></code></pre></div><ol start="3">
+<li>do <code>hugo server</code> to auto download the theme</li>
+</ol>
+<h2 id="install-go">Install go <a href="#install-go" class="anchor">🔗</a></h2><p><a href="https://go.dev/doc/install" target="_blank" rel="noopener">https://go.dev/doc/install</a></p>
+<h2 id="update-hugo-binary">Update hugo binary <a href="#update-hugo-binary" class="anchor">🔗</a></h2><ol>
+<li>
+<p>install git-lfs (do once)</p>
+<p>exec the script at <a href="https://packagecloud.io/github/git-lfs/install#bash-deb" target="_blank" rel="noopener">https://packagecloud.io/github/git-lfs/install#bash-deb</a></p>
+<p>do <code>sudo apt install git-lfs</code></p>
+<p>do <code>git lfs install</code></p>
+</li>
+<li>
+<p>track the big size file in the repo</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git lfs track &lt;file&gt;
+</span></span><span style="display:flex;"><span>git add &lt;file&gt;
+</span></span></code></pre></div><p>ref:https://blog.csdn.net/iningwei/article/details/120872620</p>
+</li>
+</ol>
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tfing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       tfing
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

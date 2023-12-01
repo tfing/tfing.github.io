@@ -6,8 +6,15 @@
     <description>Recent content on tfing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 29 Nov 2023 03:04:54 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 01 Dec 2023 01:55:13 -0500</lastBuildDate>
     <atom:link href="https://tfing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Note of using Hugo</title>
+      <link>https://tfing.github.io/posts/2023/12/01/note-of-using-hugo/</link>
+      <pubDate>Fri, 01 Dec 2023 01:55:13 -0500</pubDate>
+      <guid>https://tfing.github.io/posts/2023/12/01/note-of-using-hugo/</guid>
+      <description>&lt;p&gt;Record info/links/commands used to setup this site and post articles.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Usage example of Linux Mailbox framework - MTK ADSP IPC</title>
       <link>https://tfing.github.io/posts/2023/11/29/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</link>
