@@ -10,29 +10,32 @@
     <atom:link href="https://tfing.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Usage example of Linux Mailbox framework - MTK ADSP IPC</title>
-      <link>https://tfing.github.io/posts/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</link>
+      <link>https://tfing.github.io/posts/2023/11/29/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</link>
       <pubDate>Wed, 29 Nov 2023 03:04:54 -0500</pubDate>
-      <guid>https://tfing.github.io/posts/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</guid>
-      <description>Document and source code 🔗The offcial kernel mailbox framework document: https://docs.kernel.org/driver-api/mailbox.html
-There&amp;rsquo;re 2 main part mentioned in the doc, Controller driver and Client driver. The implementation of the framework on the MTK ADSP IPC can be found at these links.
-Controller driver: https://elixir.bootlin.com/linux/latest/source/drivers/mailbox/mtk-adsp-mailbox.c
-Client driver: https://elixir.bootlin.com/linux/latest/source/drivers/firmware/mtk-adsp-ipc.c
-THe device uses the client driver: https://elixir.bootlin.com/linux/latest/source/sound/soc/sof/mediatek/mt8186/mt8186.c#L364 https://elixir.bootlin.com/linux/latest/source/sound/soc/sof/mediatek/mt8186/mt8186.c#L85
-Related DTS nodes: https://elixir.bootlin.com/linux/latest/source/arch/arm64/boot/dts/mediatek/mt8186.dtsi#L1135
-Overview of MTK ADSP IPC 🔗The overall architecture of the MTK ADSP IPC can be depict as following figure.</description>
+      <guid>https://tfing.github.io/posts/2023/11/29/usage-example-of-linux-mailbox-framework-mtk-adsp-ipc/</guid>
+      <description>&lt;p&gt;Note of study the Kernel Mailbox framework used by the MTK ADSP IPC.&lt;/p&gt;</description>
     </item>
     <item>
       <title>矛盾的想法</title>
-      <link>https://tfing.github.io/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
+      <link>https://tfing.github.io/posts/2023/02/17/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
       <pubDate>Fri, 17 Feb 2023 14:29:53 +0800</pubDate>
-      <guid>https://tfing.github.io/posts/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</guid>
-      <description>從 http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html 看到了這兩段文字。 3、 我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。 我担心编</description>
+      <guid>https://tfing.github.io/posts/2023/02/17/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</guid>
+      <description>&lt;p&gt;從 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&lt;/a&gt; 看到了這兩段文字。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;3、
+我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。&lt;/p&gt;
+&lt;p&gt;我担心编程会变得太无聊，因为你没有机会做任何新鲜事。你的兴奋来自于看到机器产生出来的有趣结果，而不是来自创造新事物的过程。现在的乐趣变成，当你完成无聊的工作后，会突然得到一个很棒的结果，但在以前，工作本身并不乏味。&lt;/p&gt;
+&lt;p&gt;&amp;ndash; Donald Knuth&lt;/p&gt;
+&lt;p&gt;4、
+大多数编程不再是艺术，也不再是高级工程。大多数程序都是微不足道的：编码人员只需要理解某些特定的接口，然后编写一些逻辑和胶水代码。&lt;/p&gt;
+&lt;p&gt;&amp;ndash; Antirez，Redis 的作者&lt;/p&gt;
+&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>First post</title>
-      <link>https://tfing.github.io/posts/first-post/</link>
+      <link>https://tfing.github.io/posts/2023/02/04/first-post/</link>
       <pubDate>Sat, 04 Feb 2023 14:29:53 +0800</pubDate>
-      <guid>https://tfing.github.io/posts/first-post/</guid>
+      <guid>https://tfing.github.io/posts/2023/02/04/first-post/</guid>
       <description>The first post of my new site.</description>
     </item>
   </channel>
