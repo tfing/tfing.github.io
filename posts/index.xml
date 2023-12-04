@@ -6,8 +6,16 @@
     <description>Recent content in Posts on tfing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 01 Dec 2023 01:55:13 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 04 Dec 2023 06:10:26 -0500</lastBuildDate>
     <atom:link href="https://tfing.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup Github Ssh Connection</title>
+      <link>https://tfing.github.io/posts/2023/12/04/setup-github-ssh-connection/</link>
+      <pubDate>Mon, 04 Dec 2023 06:10:26 -0500</pubDate>
+      <guid>https://tfing.github.io/posts/2023/12/04/setup-github-ssh-connection/</guid>
+      <description>&lt;p&gt;Setup the ssh connection of my laptop with Github by following the steps in the &lt;a href=&#34;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github SSH tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Following is the record of my setup. It&amp;rsquo;s a simplified version of the Github tutorial.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Note of using Hugo</title>
       <link>https://tfing.github.io/posts/2023/12/01/note-of-using-hugo/</link>
