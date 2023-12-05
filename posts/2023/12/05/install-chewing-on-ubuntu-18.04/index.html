@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <title>Install chewing on Ubuntu 18.04 | tfing</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="After google it and follow the instructions on various posts, I finally setup it successfully on Ubuntu 18.04.">
+<meta name="generator" content="Hugo 0.120.4">
+
+
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Install chewing on Ubuntu 18.04</h1>
+
+    <div class="tip">
+        <time datetime="2023-12-05 10:51:10 &#43;0800 CST">Dec 5, 2023</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          127 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#reference-posts">Reference posts</a></li>
+        <li><a href="#step">Step</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <p>After google it and follow the instructions on various posts, I finally setup it successfully on Ubuntu 18.04.</p>
+<h3 id="reference-posts">Reference posts <a href="#reference-posts" class="anchor">🔗</a></h3><p>[1] Detailed steps and figures to follow it, but it doesn&rsquo;t work for me at last.
+<a href="https://medium.com/@cindylin_1410/linux-%E5%A6%82%E4%BD%95%E5%9C%A8-ubuntu-18-04-%E4%B8%8A%E5%AE%89%E8%A3%9D%E6%96%B0%E9%85%B7%E9%9F%B3-installing-chewing-on-ubuntu-18-04-tutorial-f1a51d5cf9de" target="_blank" rel="noopener">https://medium.com/@cindylin_1410/linux-%E5%A6%82%E4%BD%95%E5%9C%A8-ubuntu-18-04-%E4%B8%8A%E5%AE%89%E8%A3%9D%E6%96%B0%E9%85%B7%E9%9F%B3-installing-chewing-on-ubuntu-18-04-tutorial-f1a51d5cf9de</a></p>
+<p>[2] Use another chewing package &lsquo;ibus&rsquo;. I can find the &lsquo;Chinese (chewing)&rsquo; option in the &lsquo;Installed Language&rsquo;, but
+I cannot input chewing in the chrome search bar.
+<a href="https://medium.com/@racktar7743/ubuntu-%E5%9C%A8-ubuntu-18-04-%E4%B8%AD%E6%96%B0%E5%A2%9E%E6%96%B0%E9%85%B7%E9%9F%B3%E8%BC%B8%E5%85%A5%E6%B3%95-4aa85782f656" target="_blank" rel="noopener">https://medium.com/@racktar7743/ubuntu-%E5%9C%A8-ubuntu-18-04-%E4%B8%AD%E6%96%B0%E5%A2%9E%E6%96%B0%E9%85%B7%E9%9F%B3%E8%BC%B8%E5%85%A5%E6%B3%95-4aa85782f656</a></p>
+<p>[3] Solve the input issue and let the chewing input works in chrome search bar.
+<a href="https://askubuntu.com/questions/1073641/chinese-input-doesnt-work-outside-activities-system-search-super-key-on-ubu" target="_blank" rel="noopener">https://askubuntu.com/questions/1073641/chinese-input-doesnt-work-outside-activities-system-search-super-key-on-ubu</a></p>
+<h3 id="step">Step <a href="#step" class="anchor">🔗</a></h3><ol>
+<li>remove fcitx if installed before</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get remove fcitx
+</span></span><span style="display:flex;"><span>sudo apt-get purge fcitx
+</span></span><span style="display:flex;"><span>sudo apt-get autoremove
+</span></span></code></pre></div><ol start="2">
+<li>install ibus chewing</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install ibus-chewing
+</span></span></code></pre></div><ol start="3">
+<li>
+<p>reboot (<strong>MUST</strong>)</p>
+</li>
+<li>
+<p>follow steps in link [2], but remeber to select &lsquo;IBus&rsquo; for the input system as mentioned in link [3].
+<p class="markdown-image">
+  <img src="/images/20231205-select-input.png" alt=""  />
+</p></p>
+</li>
+</ol>
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tfing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       tfing
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
