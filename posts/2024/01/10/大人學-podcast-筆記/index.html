@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
   <head>
-    <title>Setup Github Ssh Connection | tfing</title>
+    <title>大人學 podcast 筆記 | tfing</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="Setup the ssh connection of my laptop with Github by following the steps in the Github SSH tutorial.
-Following is the record of my setup. It&rsquo;s a simplified version of the Github tutorial.">
+<meta name="description" content="EP363 你的人生選擇，為何一定要他人支持？ 🔗&ldquo;想做的事情得不到重要的人的支持，怎麼辦？&rdquo; 想想看，為什麼想做的事需要得到別人">
 <meta name="generator" content="Hugo 0.120.4">
 
 
@@ -63,15 +62,15 @@ if (!doNotTrack) {
       
 
 <section id="single">
-    <h1 class="title">Setup Github Ssh Connection</h1>
+    <h1 class="title">大人學 podcast 筆記</h1>
 
     <div class="tip">
-        <time datetime="2023-12-04 06:10:26 -0500 -0500">Dec 4, 2023</time>
+        <time datetime="2024-01-10 19:29:28 &#43;0800 CST">Jan 10, 2024</time>
         <span class="split">
           ·
         </span>
         <span>
-          115 words
+          195 words
         </span>
         <span class="split">
           ·
@@ -91,41 +90,33 @@ if (!doNotTrack) {
 
 
     <div class="content">
-      <p>Setup the ssh connection of my laptop with Github by following the steps in the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">Github SSH tutorial</a>.</p>
-<p>Following is the record of my setup. It&rsquo;s a simplified version of the Github tutorial.</p>
+      <h1 id="ep363-你的人生選擇為何一定要他人支持">EP363 你的人生選擇，為何一定要他人支持？ <a href="#ep363-%e4%bd%a0%e7%9a%84%e4%ba%ba%e7%94%9f%e9%81%b8%e6%93%87%e7%82%ba%e4%bd%95%e4%b8%80%e5%ae%9a%e8%a6%81%e4%bb%96%e4%ba%ba%e6%94%af%e6%8c%81" class="anchor">🔗</a></h1><p>&ldquo;想做的事情得不到重要的人的支持，怎麼辦？&rdquo;</p>
+<p>想想看，為什麼想做的事需要得到別人的支持呢？</p>
 <ol>
 <li>
-<p>generate ssh key
-<code>ssh-keygen -t ed25519 -C &quot;tf1515@gmail.com&quot;</code>
-or
-<code>ssh-keygen -t rsa -C &quot;tf1515@gmail.com&quot;</code></p>
+<p>反思自己是不是卡在小時候需要大人支持的慣性思考</p>
 </li>
 <li>
-<p>reuse ssh key
-if use existing key, copy ssh private/public key files to <code>~/.ssh</code>.
-modify the private key file permission because the ssh agent will check it.
-my private/public key file name is id_rsa_tinghan_github/id_rsa_tinghan_github_pub.</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod 600 ~/.ssh/id_rsa_tinghan_github
-</span></span></code></pre></div><ol start="3">
-<li>
-<p>add public key to Github account
-<a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account" target="_blank" rel="noopener">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account</a></p>
+<p>是不是因為害怕不確定性和失敗，尋找支持其實是想找人一起承擔</p>
 </li>
 <li>
-<p>add private key to ssh agent</p>
+<p>誤以為跟重要的人的意見不同，就會破壞關係</p>
+<ul>
+<li>
+<p>好好溝通，說出自己的想法。因為我們之間的關係，應該不會是有條件的愛</p>
+</li>
+<li>
+<p>溝通之餘，用結果證明自己的想法</p>
+</li>
+</ul>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>eval &#34;$(ssh-agent -s)&#34;
-</span></span><span style="display:flex;"><span>ssh-add ~/.ssh/id_rsa_tinghan_github
-</span></span></code></pre></div><ol start="5">
-<li>test ssh connection and done if see messages like below</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ssh -T git@github.com
-</span></span></code></pre></div><p><p class="markdown-image">
-  <img src="/images/20231204-ssh-test.png" alt="ssh-test"  />
-</p></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/eRaRmuQYsr4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
     </div>
 
     
