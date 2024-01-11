@@ -1,0 +1,9 @@
+#single {
+    max-width: 800px;
+}
+
+.markdown-image img {
+    /* center */
+    display: block;
+    margin: 0 auto;
+}
