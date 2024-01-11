@@ -70,7 +70,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          200 words
+          202 words
         </span>
         <span class="split">
           ·
@@ -121,7 +121,7 @@ markdown syntax: <a href="https://www.markdownguide.org/tools/hugo/" target="_bl
 <h2 id="add-post">Add post <a href="#add-post" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new content/posts/&lt;post-name&gt;.md<span style="color:#cd5555">`</span>
 </span></span></code></pre></div><p>Insert <code>&lt;!--more--&gt;</code> in the post to identify the content showed as summary.</p>
 <p>Add <code>showToc: true</code> in the head of post to add table of contents in the post.</p>
-<p>pre-view drafts: <code>hugo server -D</code></p>
+<p>pre-view drafts: <code>hugo server -D --config config.yaml,config.toml</code></p>
 <h3 id="deploy">Deploy <a href="#deploy" class="anchor">🔗</a></h3><p>generate the public folder for deploy on Github.
 the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#00688b">HUGO_ENV</span>=production hugo --config config.yaml,config.toml
