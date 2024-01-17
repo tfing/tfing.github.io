@@ -112,30 +112,24 @@ Here is the steps I took by following the guide on the hugo site,
 <li>
 <p>Clone the mini theme.
 The folder structure is like following.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>.
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>├── hugo-theme-mini
 </span></span><span style="display:flex;"><span>├── mysite
 </span></span></code></pre></div></li>
 <li>
 <p>Add the &lsquo;replace&rsquo; line in the mysite/go.mod as following</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>module tfing.github.io/tfing
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>module tfing.github.io/tfing
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>go 1.21.4
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>require github.com/nodejh/hugo-theme-mini v0.0.0-20231219060119-7089c3e9368d // indirect
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>replace github.com/nodejh/hugo-theme-mini =&gt; ../hugo-theme-mini
+</span></span><span style="display:flex;"><span>replace github.com/nodejh/hugo-theme-mini <span style="color:#89dceb;font-weight:bold">=</span>&gt; ../hugo-theme-mini
 </span></span></code></pre></div></li>
 <li>
 <p>Copy the mysite/go.mod to hugo-theme-mini
 I encounters an error before copy the go.mod to the local theme folder.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>Error: command error: failed to <span style="color:#658b00">load</span> modules: failed to get [<span style="color:#cd5555">&#34;-d&#34;</span> <span style="color:#cd5555">&#34;github.com/nodejh/hugo-theme-mini@upgrade&#34;</span>]: 
-</span></span><span style="display:flex;"><span>failed to execute <span style="color:#cd5555">&#39;go [get -d github.com/nodejh/hugo-theme-mini@upgrade]&#39;</span>: 
-</span></span><span style="display:flex;"><span>failed to execute binary <span style="color:#cd5555">&#34;go&#34;</span> with args [get -d github.com/nodejh/hugo-theme-mini<span style="color:#a61717;background-color:#e3d2d2">@</span>upgrade]: 
-</span></span><span style="display:flex;"><span>go: github.com/nodejh/hugo-theme-mini<span style="color:#a61717;background-color:#e3d2d2">@</span>upgrade (v0.<span style="color:#b452cd">0.0</span>-<span style="color:#b452cd">20231219060119</span>-<span style="color:#b452cd">7089</span>c3e9368d) 
-</span></span><span style="display:flex;"><span>requires github.com/nodejh/hugo-theme-mini<span style="color:#a61717;background-color:#e3d2d2">@</span>v0.<span style="color:#b452cd">0.0</span>-<span style="color:#b452cd">20231219060119</span>-<span style="color:#b452cd">7089</span>c3e9368d: 
-</span></span><span style="display:flex;"><span>module /home/xxx/site/hugo-theme-mini: reading ../hugo-theme-mini/go.mod: 
-</span></span><span style="display:flex;"><span>open /home/xxx/site/hugo-theme-mini/go.mod: no such file <span style="color:#8b008b">or</span> directory
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Error: <span style="color:#89dceb">command</span> error: failed to load modules: failed to get <span style="color:#89dceb;font-weight:bold">[</span><span style="color:#a6e3a1">&#34;-d&#34;</span> <span style="color:#a6e3a1">&#34;github.com/nodejh/hugo-theme-mini@upgrade&#34;</span><span style="color:#89dceb;font-weight:bold">]</span>: failed to execute <span style="color:#a6e3a1">&#39;go [get -d github.com/nodejh/hugo-theme-mini@upgrade]&#39;</span>: failed to execute binary <span style="color:#a6e3a1">&#34;go&#34;</span> with args <span style="color:#89dceb;font-weight:bold">[</span>get -d github.com/nodejh/hugo-theme-mini@upgrade<span style="color:#89dceb;font-weight:bold">]</span>: go: github.com/nodejh/hugo-theme-mini@upgrade <span style="color:#89dceb;font-weight:bold">(</span>v0.0.0-20231219060119-7089c3e9368d<span style="color:#89dceb;font-weight:bold">)</span> requires github.com/nodejh/hugo-theme-mini@v0.0.0-20231219060119-7089c3e9368d: module /home/xxx/site/hugo-theme-mini: reading ../hugo-theme-mini/go.mod: open /home/xxx/site/hugo-theme-mini/go.mod: no such file or directory
 </span></span></code></pre></div></li>
 <li>
 <p>Terminate the hugo server if it&rsquo;s running already and restart it</p>

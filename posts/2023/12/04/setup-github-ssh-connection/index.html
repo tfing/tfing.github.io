@@ -112,8 +112,8 @@ modify the private key file permission because the ssh agent will check it.
 my private/public key file name is id_rsa_tinghan_github/id_rsa_tinghan_github_pub.</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>chmod 600 ~/.ssh/id_rsa_tinghan_github
-</span></span></code></pre></div><ol start="3">
+<pre tabindex="0"><code>chmod 600 ~/.ssh/id_rsa_tinghan_github
+</code></pre><ol start="3">
 <li>
 <p>add public key to Github account
 <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account" target="_blank" rel="noopener">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account</a></p>
@@ -122,13 +122,13 @@ my private/public key file name is id_rsa_tinghan_github/id_rsa_tinghan_github_p
 <p>add private key to ssh agent</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>eval &#34;$(ssh-agent -s)&#34;
-</span></span><span style="display:flex;"><span>ssh-add ~/.ssh/id_rsa_tinghan_github
-</span></span></code></pre></div><ol start="5">
+<pre tabindex="0"><code>eval &#34;$(ssh-agent -s)&#34;
+ssh-add ~/.ssh/id_rsa_tinghan_github
+</code></pre><ol start="5">
 <li>test ssh connection and done if see messages like below</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ssh -T git@github.com
-</span></span></code></pre></div><p><p class="markdown-image">
+<pre tabindex="0"><code>ssh -T git@github.com
+</code></pre><p><p class="markdown-image">
   <img src="/images/20231204-ssh-test.png" alt="ssh-test"  />
 </p></p>
     </div>

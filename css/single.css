@@ -7,3 +7,9 @@
     display: block;
     margin: 0 auto;
 }
+
+/* wrap code segment */
+/* Ref: https://discourse.gohugo.io/t/set-width-when-using-syntax-highlighting-and-code-fences/26544/6 */
+.highlight pre {
+    white-space: pre-wrap;
+}

@@ -98,25 +98,25 @@ if (!doNotTrack) {
 
     <div class="content">
       <p>Today I got the following kernel error message when boot to probe uart 1 serial drive.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>kobject_add_internal failed for 10060000.serial with -EEXIST, don&#39;t try to register things with the same name in the same directory
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kobject_add_internal failed <span style="color:#cba6f7">for</span> 10060000.serial with -EEXIST, don<span style="color:#f38ba8">&#39;</span>t try to register things with the same name in the same directory
 </span></span></code></pre></div><p>When I got this error, I was do an experiment to let the ttyS0 could use the uart 1 driver to print kernel log. My dts is like following for the experiment.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>uart0: serial@10001000 {
-</span></span><span style="display:flex;"><span>    compatible = &#34;ns16550&#34;;
-</span></span><span style="display:flex;"><span>    reg = &lt;0 0x10001000 0 0x1000&gt;&#39;&#39;
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>uart0: serial@10001000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;ns16550&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">reg</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;<span style="color:#fab387">0</span> 0x10001000 <span style="color:#fab387">0</span> 0x1000&gt;<span style="color:#a6e3a1">&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    //...
-</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>uart1: serial@10060000 {
-</span></span><span style="display:flex;"><span>    compatible = &#34;ns16550&#34;;
-</span></span><span style="display:flex;"><span>    reg = &lt;0 0x10060000 0 0x1000&gt;&#39;&#39;
+</span></span><span style="display:flex;"><span>uart1: serial@10060000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;ns16550&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">reg</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;<span style="color:#fab387">0</span> 0x10060000 <span style="color:#fab387">0</span> 0x1000&gt;<span style="color:#a6e3a1">&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    //...
-</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>;
 </span></span></code></pre></div><p>I found this page very helpful when googling for how to bind the ttyS0 with specific serial driver. It mentions both driver binding and alias that provides helps me to dig into this error.
 <a href="https://support.xilinx.com/s/question/0D52E00006hpfSkSAI/how-is-ttyps0-in-the-bootargs-connected-to-the-physical-uart-of-the-ps-in-linux?language=en_US" target="_blank" rel="noopener">https://support.xilinx.com/s/question/0D52E00006hpfSkSAI/how-is-ttyps0-in-the-bootargs-connected-to-the-physical-uart-of-the-ps-in-linux?language=en_US</a></p>
 <p>I can find the same code snippet of <code>of_alias_get_id(pdev-&gt;dev.of_node, &quot;serial&quot;);</code> in the ns16550 driver. So, I was guessing that it&rsquo;s caused by not assign the driver for stdout. I added following lines, but it didn&rsquo;t help to solve the error.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>alias {
-</span></span><span style="display:flex;"><span>    serial0 = &amp;uart1;
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#89dceb">alias</span> <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">serial0</span> <span style="color:#89dceb;font-weight:bold">=</span> &amp;uart1;
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>;
 </span></span></code></pre></div><p>After some googling of the output error messages, I found this answer.
 <a href="https://unix.stackexchange.com/questions/568338/what-does-this-linux-kernel-panic-message-sysfs-cannot-create-duplicate-filena/568412#568412" target="_blank" rel="noopener">https://unix.stackexchange.com/questions/568338/what-does-this-linux-kernel-panic-message-sysfs-cannot-create-duplicate-filena/568412#568412</a></p>
 <p>Some words in this answer got my attention.</p>
@@ -124,18 +124,18 @@ if (!doNotTrack) {
 <p>&hellip; either from a driver registering it twice, or from two drivers trying to register the same name.</p>
 </blockquote>
 <p>I decide to remove all uart node except the one I want to use, and then, the error is gone!</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>/* uart0: serial@10001000 {
-</span></span><span style="display:flex;"><span>    compatible = &#34;ns16550&#34;;
-</span></span><span style="display:flex;"><span>    reg = &lt;0 0x10001000 0 0x1000&gt;&#39;&#39;
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/* uart0: serial@10001000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;ns16550&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">reg</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;<span style="color:#fab387">0</span> 0x10001000 <span style="color:#fab387">0</span> 0x1000&gt;<span style="color:#a6e3a1">&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    ...snip...
-</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>;
 </span></span><span style="display:flex;"><span>*/
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>uart1: serial@10060000 {
-</span></span><span style="display:flex;"><span>    compatible = &#34;ns16550&#34;;
-</span></span><span style="display:flex;"><span>    reg = &lt;0 0x10060000 0 0x1000&gt;&#39;&#39;
+</span></span><span style="display:flex;"><span>uart1: serial@10060000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;ns16550&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">reg</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;<span style="color:#fab387">0</span> 0x10060000 <span style="color:#fab387">0</span> 0x1000&gt;<span style="color:#a6e3a1">&#39;&#39;</span>
 </span></span><span style="display:flex;"><span>    ...snip...
-</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>;
 </span></span></code></pre></div><p>It looks like the ns16550 driver doesn&rsquo;t support multiple nodes with the same compatible name at kernel v6.1.
 I feel that this is not the expected behavior. Maybe there&rsquo;s something that I didn&rsquo;t get it right.</p>
 
