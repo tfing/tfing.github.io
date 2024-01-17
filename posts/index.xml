@@ -6,8 +6,17 @@
     <description>Recent content in Posts on tfing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 11 Jan 2024 11:23:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Jan 2024 16:39:18 +0800</lastBuildDate>
     <atom:link href="https://tfing.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Failed to probe 2 ns16550 uart node at kernel 6.1</title>
+      <link>https://tfing.github.io/posts/2024/01/17/failed-to-probe-2-ns16550-uart-node-at-kernel-6.1/</link>
+      <pubDate>Wed, 17 Jan 2024 16:39:18 +0800</pubDate>
+      <guid>https://tfing.github.io/posts/2024/01/17/failed-to-probe-2-ns16550-uart-node-at-kernel-6.1/</guid>
+      <description>Today I got the following kernel error message when boot to probe uart 1 serial drive.
+kobject_add_internal failed for 10060000.serial with -EEXIST, don&amp;#39;t try to register things with the same name in the same directory When I got this error, I was do an experiment to let the ttyS0 could use the uart 1 driver to print kernel log. My dts is like following for the experiment.
+uart0: serial@10001000 { compatible = &amp;#34;ns16550&amp;#34;; reg = &amp;lt;0 0x10001000 0 0x1000&amp;gt;&amp;#39;&amp;#39; //.</description>
+    </item>
     <item>
       <title>Local test disqus on Hugo</title>
       <link>https://tfing.github.io/posts/2024/01/11/local-test-disqus-on-hugo/</link>
