@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <title>Note of Option | tfing</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="What&rsquo;s Option 🔗Option is a contract that derivated from the underlying stock. It gives the contract buyer the right to buy or sell the stock at a certain price before a certain date. the certain price is called &lsquo;strike price&rsquo;. the certin date is called &rsquo;expiration date&rsquo;.
+If user A buys a contract with the right to buy the stock from user B, user A can decide when to execute the contract before expiration date.">
+<meta name="generator" content="Hugo 0.120.4">
+
+
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tfing.github.iocss/single.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Note of Option</h1>
+
+    <div class="tip">
+        <time datetime="2024-06-18 14:12:25 &#43;0800 CST">Jun 18, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          514 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          3 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="whats-option">What&rsquo;s Option <a href="#whats-option" class="anchor">🔗</a></h1><p>Option is a contract that derivated from the underlying stock.
+It gives the contract buyer the right to buy or sell the stock at a certain price before a certain date.
+the certain price is called &lsquo;strike price&rsquo;.
+the certin date is called &rsquo;expiration date&rsquo;.</p>
+<p>If user A buys a contract with the right to buy the stock from user B, user A can decide when to execute the contract before expiration date.
+If user A decides to execute the right to buy stocks, user B is obligated to sell the stocks to user A at the strike price.
+the buy action of user A is called &rsquo;exercise&rsquo;.
+the sell action of user B is called &lsquo;assignment&rsquo;.</p>
+<p>the situation is similar for the sell right.
+The user A has the right to sell the stock to user B at the strike price.
+The user B is obligated to buy the stock at the strike price.</p>
+<p>Hence, there are 2 types of options. &lsquo;call option&rsquo; for the right to buy and &lsquo;put option&rsquo; for the right to sell.</p>
+<p>the term to say the buyer/seller of options are,
+Long: buyer of options. long call and long put.
+Short: seller of options. short call and short put.</p>
+<p>The price to buy a option calls &lsquo;premium&rsquo;.
+The options price is decied by 3 factors,</p>
+<ol>
+<li>underlying stock price</li>
+<li>time to expiration</li>
+<li>implied volatility</li>
+</ol>
+<p>The option price is settled by the &lsquo;Black-Scholes formula&rsquo;.
+The authors win the Nobel prize for this work.</p>
+<p>The most most important factor is the stock price. the higher the stock price the higher the premium.
+The more the time left until expiration date the more time value of the option.
+The more volatility of the stock means the more probability the stock will have a big move in price.</p>
+<p>The difference of bid/ask of option price is called &lsquo;bid/ask spread&rsquo;.
+The less the bid/ask spread the better liquidity of the option.</p>
+<p>The option premium can also be classfied to intrinsic value and extrinsic value.
+The intrinsic value is the value the can be obtained from stock price at expiration date.
+The extrinsic value is the value of time and volatility.</p>
+<p>if an option price has the intrinsic value, it&rsquo;s called &lsquo;in-the-money&rsquo;(ITM).
+if an option price has only the extrinsic value, it&rsquo;s called &lsquo;out-the-money&rsquo;(OTM).
+if an option price is close to the stock price (less than one), it&rsquo;s called &lsquo;at-the-money&rsquo;(ATM).</p>
+<h1 id="option-greeks">Option greeks <a href="#option-greeks" class="anchor">🔗</a></h1><p>delta: how much the premium change with $1 move of the underlying stock
+measures the likelihood of option expired in-the-money
+gamma: how much the delta change with $1 move of the underlying stock
+theta: how sensitive of the time decay
+the closer to the expiration date, the faster of the premium decrease.
+the longer to the expiration date, the slower of the premium decrease.</p>
+<h1 id="actions-can-happen-before-an-option-expiration">Actions can happen before an option expiration <a href="#actions-can-happen-before-an-option-expiration" class="anchor">🔗</a></h1><p>Close: Seller can close the option by buying the option back.
+Roll: means 2 actions in one trade, close the current option and open a new option.
+Exercise: Buyer can execute the option to buy/sell the underlying stock at strike price.</p>
+
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tfing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       tfing
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>

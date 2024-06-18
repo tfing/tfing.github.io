@@ -6,8 +6,16 @@
     <description>Recent content in Posts on tfing</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Thu, 15 Feb 2024 18:33:37 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jun 2024 14:12:25 +0800</lastBuildDate>
     <atom:link href="https://tfing.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Note of Option</title>
+      <link>https://tfing.github.io/posts/2024/06/18/note-of-option/</link>
+      <pubDate>Tue, 18 Jun 2024 14:12:25 +0800</pubDate>
+      <guid>https://tfing.github.io/posts/2024/06/18/note-of-option/</guid>
+      <description>What&amp;rsquo;s Option 🔗Option is a contract that derivated from the underlying stock. It gives the contract buyer the right to buy or sell the stock at a certain price before a certain date. the certain price is called &amp;lsquo;strike price&amp;rsquo;. the certin date is called &amp;rsquo;expiration date&amp;rsquo;.
+If user A buys a contract with the right to buy the stock from user B, user A can decide when to execute the contract before expiration date.</description>
+    </item>
     <item>
       <title>2024 年前的韓國行</title>
       <link>https://tfing.github.io/posts/2024/02/15/2024-%E5%B9%B4%E5%89%8D%E7%9A%84%E9%9F%93%E5%9C%8B%E8%A1%8C/</link>
