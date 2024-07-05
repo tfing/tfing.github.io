@@ -75,7 +75,7 @@ if (!doNotTrack) {
           ·
         </span>
         <span>
-          454 words
+          471 words
         </span>
         <span class="split">
           ·
@@ -104,16 +104,16 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>                &lt;GIC_SPI <span style="color:#fab387">328</span> IRQ_TYPE_LEVEL_HIGH 0&gt;;
 </span></span><span style="display:flex;"><span>    interrupt-names <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;mbox0&#34;</span>, <span style="color:#a6e3a1">&#34;mbox1&#34;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>
-</span></span></code></pre></div><p>看起來很正常，interrupts 的寫法跟之前的 project 一樣，後面都有加 0。
-於是就開始 trace kernel code，看看到底是什麼造成的, 發現是這邊的判斷式擋掉的。</p>
+</span></span></code></pre></div><p>看起來很正常，interrupts 的寫法跟之前的 project 一樣，後面都有加 0。</p>
+<p>於是就開始 trace kernel code，想知道到底是在哪邊擋住的, 就找到是這邊的判斷式。</p>
 <p><a href="https://elixir.bootlin.com/linux/latest/source/drivers/irqchip/irq-gic-v3.c#L647" target="_blank" rel="noopener">https://elixir.bootlin.com/linux/latest/source/drivers/irqchip/irq-gic-v3.c#L647</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>	<span style="color:#6c7086;font-style:italic">/* SPIs have restrictions on the supported types */</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#cba6f7">if</span> ((range <span style="color:#89dceb;font-weight:bold">==</span> SPI_RANGE <span style="color:#89dceb;font-weight:bold">||</span> range <span style="color:#89dceb;font-weight:bold">==</span> ESPI_RANGE) <span style="color:#89dceb;font-weight:bold">&amp;&amp;</span>
 </span></span><span style="display:flex;"><span>	    type <span style="color:#89dceb;font-weight:bold">!=</span> IRQ_TYPE_LEVEL_HIGH <span style="color:#89dceb;font-weight:bold">&amp;&amp;</span> type <span style="color:#89dceb;font-weight:bold">!=</span> IRQ_TYPE_EDGE_RISING)
 </span></span><span style="display:flex;"><span>		<span style="color:#cba6f7">return</span> <span style="color:#89dceb;font-weight:bold">-</span>EINVAL;
-</span></span></code></pre></div><p>於是就在這邊 dump type，結果 dump 出來的 type 是 8 (IRQ_TYPE_LEVEL_LOW)。
-這就怪了，明明 dts 寫的是 IRQ_TYPE_LEVEL_HIGH，怎麼這邊拿到的是 IRQ_TYPE_LEVEL_LOW？
-就有點懷疑是哪邊在 init 時錯了呢？就在看 code 加 log 時，設定值來源看的還是 dts，沒有其他的變數，就在回頭去檢查 dts。</p>
+</span></span></code></pre></div><p>於是就在這邊 dump type，結果 dump 出來的 type 是 8 (IRQ_TYPE_LEVEL_LOW)。</p>
+<p>這就怪了，明明 dts 寫的是 IRQ_TYPE_LEVEL_HIGH，怎麼這邊拿到的是 IRQ_TYPE_LEVEL_LOW？
+就有點懷疑是不是在 init 時哪邊有偷改呢？就在看 code 加 log 時，感覺設定來源看的還是 dts，沒有其他的變數，於是就在回頭去檢查 dts。</p>
 <div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gic: interrupt-controller@6800000 <span style="color:#89dceb;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;arm,gic-v3&#34;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic">#interrupt-cells = &lt;3&gt;; // &lt;--- point</span>
@@ -123,7 +123,8 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    interrupt-controller;
 </span></span><span style="display:flex;"><span>    ...snip...
 </span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>
-</span></span></code></pre></div><p>這才注意到，這邊寫了 interrupt-cells 裡的變數數量只有三個。把最後面的 0 拿掉後就解掉了。</p>
+</span></span></code></pre></div><p>這才注意到，這邊的 interrupt_cells 設定了 interrupts 裡的變數數量只有三個。</p>
+<p>把一開始搬過來時，最後面的 0 拿掉後就解掉了。</p>
 <div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>foo: foo@10000000 <span style="color:#89dceb;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">interrupts</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;GIC_SPI <span style="color:#fab387">327</span> IRQ_TYPE_LEVEL_HIGH&gt;,
 </span></span><span style="display:flex;"><span>                &lt;GIC_SPI <span style="color:#fab387">328</span> IRQ_TYPE_LEVEL_HIGH&gt;;
