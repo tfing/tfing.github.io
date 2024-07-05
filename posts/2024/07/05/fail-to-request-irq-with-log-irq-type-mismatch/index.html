@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <title>Fail to request irq with log &#39;irq: type mismatch&#39; | tfing</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="最近花了一天在 trace 一個印象中之前有踩過得洞，紀錄一下失去的時間。 現象是在 kernel 再做 driver probe function，走到 request IRQ 時，看到這個 log irq: type mismatch, failed to map hwirq-32 for interrupt-controller@6800000! 對">
+<meta name="generator" content="Hugo 0.120.4">
+
+
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+    
+    <link rel="stylesheet" href="https://tfing.github.iocss/single.css">
+  
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
+}
+</script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+
+	
+	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Fail to request irq with log &#39;irq: type mismatch&#39;</h1>
+
+    <div class="tip">
+        <time datetime="2024-07-05 11:17:59 &#43;0800 CST">Jul 5, 2024</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          454 words
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1 minute read
+        </span>
+    </div>
+
+    
+    
+        
+  
+
+
+    
+
+
+    <div class="content">
+      <p>最近花了一天在 trace 一個印象中之前有踩過得洞，紀錄一下失去的時間。</p>
+<p>現象是在 kernel 再做 driver probe function，走到 request IRQ 時，看到這個 log</p>
+<pre tabindex="0"><code>irq: type mismatch, failed to map hwirq-32 for interrupt-controller@6800000!
+</code></pre><p>對應的 dts 長這樣</p>
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>foo: foo@10000000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">interrupts</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;GIC_SPI <span style="color:#fab387">327</span> IRQ_TYPE_LEVEL_HIGH 0&gt;,
+</span></span><span style="display:flex;"><span>                &lt;GIC_SPI <span style="color:#fab387">328</span> IRQ_TYPE_LEVEL_HIGH 0&gt;;
+</span></span><span style="display:flex;"><span>    interrupt-names <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;mbox0&#34;</span>, <span style="color:#a6e3a1">&#34;mbox1&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>
+</span></span></code></pre></div><p>看起來很正常，interrupts 的寫法跟之前的 project 一樣，後面都有加 0。
+於是就開始 trace kernel code，看看到底是什麼造成的, 發現是這邊的判斷式擋掉的。</p>
+<p><a href="https://elixir.bootlin.com/linux/latest/source/drivers/irqchip/irq-gic-v3.c#L647" target="_blank" rel="noopener">https://elixir.bootlin.com/linux/latest/source/drivers/irqchip/irq-gic-v3.c#L647</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>	<span style="color:#6c7086;font-style:italic">/* SPIs have restrictions on the supported types */</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#cba6f7">if</span> ((range <span style="color:#89dceb;font-weight:bold">==</span> SPI_RANGE <span style="color:#89dceb;font-weight:bold">||</span> range <span style="color:#89dceb;font-weight:bold">==</span> ESPI_RANGE) <span style="color:#89dceb;font-weight:bold">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>	    type <span style="color:#89dceb;font-weight:bold">!=</span> IRQ_TYPE_LEVEL_HIGH <span style="color:#89dceb;font-weight:bold">&amp;&amp;</span> type <span style="color:#89dceb;font-weight:bold">!=</span> IRQ_TYPE_EDGE_RISING)
+</span></span><span style="display:flex;"><span>		<span style="color:#cba6f7">return</span> <span style="color:#89dceb;font-weight:bold">-</span>EINVAL;
+</span></span></code></pre></div><p>於是就在這邊 dump type，結果 dump 出來的 type 是 8 (IRQ_TYPE_LEVEL_LOW)。
+這就怪了，明明 dts 寫的是 IRQ_TYPE_LEVEL_HIGH，怎麼這邊拿到的是 IRQ_TYPE_LEVEL_LOW？
+就有點懷疑是哪邊在 init 時錯了呢？就在看 code 加 log 時，設定值來源看的還是 dts，沒有其他的變數，就在回頭去檢查 dts。</p>
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gic: interrupt-controller@6800000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">compatible</span> <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;arm,gic-v3&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic">#interrupt-cells = &lt;3&gt;; // &lt;--- point</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic">#address-cells = &lt;2&gt;;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6c7086;font-style:italic">#size-cells = &lt;2&gt;;</span>
+</span></span><span style="display:flex;"><span>    ranges;
+</span></span><span style="display:flex;"><span>    interrupt-controller;
+</span></span><span style="display:flex;"><span>    ...snip...
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>
+</span></span></code></pre></div><p>這才注意到，這邊寫了 interrupt-cells 裡的變數數量只有三個。把最後面的 0 拿掉後就解掉了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>foo: foo@10000000 <span style="color:#89dceb;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f5e0dc">interrupts</span> <span style="color:#89dceb;font-weight:bold">=</span> &lt;GIC_SPI <span style="color:#fab387">327</span> IRQ_TYPE_LEVEL_HIGH&gt;,
+</span></span><span style="display:flex;"><span>                &lt;GIC_SPI <span style="color:#fab387">328</span> IRQ_TYPE_LEVEL_HIGH&gt;;
+</span></span><span style="display:flex;"><span>    interrupt-names <span style="color:#89dceb;font-weight:bold">=</span> <span style="color:#a6e3a1">&#34;mbox0&#34;</span>, <span style="color:#a6e3a1">&#34;mbox1&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#89dceb;font-weight:bold">}</span>
+</span></span></code></pre></div><p>阿彌陀佛，之後在不同 project 間搬 code，可以考慮把 dts checking 的機制加進來。</p>
+
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tfing" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2024 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       tfing
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
