@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="I noticed that the disqus reaction buttons are enabled after install disqus comment system on my site. I feel that the buttons on my site is too significant and I doesn&rsquo;t need the reaction statistics. So, I decides to disable the reaction buttons.
 I was thought that I have to modify the hugo template to achieve this. So, I find the way to test the theme on the hugo local server.">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.131.0">
 
 
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -19,7 +19,7 @@ I was thought that I have to modify the hugo template to achieve this. So, I fin
 
   
     
-    <link rel="stylesheet" href="https://tfing.github.iocss/single.css">
+    <link rel="stylesheet" href="https://tfing.github.io/css/single.css">
   
 
 
@@ -27,16 +27,25 @@ I was thought that I have to modify the hugo template to achieve this. So, I fin
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EW6W66PLM4');
+        }
+      </script>
+    
+  
+
 
 
 
@@ -58,8 +67,6 @@ if (!doNotTrack) {
 
 	
 
-	
-	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -144,7 +151,7 @@ I encounters an error before copy the go.mod to the local theme folder.</p>
   <div id="comment">
     
     <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     

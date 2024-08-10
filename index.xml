@@ -4,10 +4,17 @@
     <title>tfing</title>
     <link>https://tfing.github.io/</link>
     <description>Recent content on tfing</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Fri, 05 Jul 2024 11:17:59 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 10 Aug 2024 10:48:42 +0800</lastBuildDate>
     <atom:link href="https://tfing.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024-07 東京迪士尼</title>
+      <link>https://tfing.github.io/posts/2024/08/10/2024-07-%E6%9D%B1%E4%BA%AC%E8%BF%AA%E5%A3%AB%E5%B0%BC/</link>
+      <pubDate>Sat, 10 Aug 2024 10:48:42 +0800</pubDate>
+      <guid>https://tfing.github.io/posts/2024/08/10/2024-07-%E6%9D%B1%E4%BA%AC%E8%BF%AA%E5%A3%AB%E5%B0%BC/</guid>
+      <description>今年八月小孩要上小學了，在上小學之前來去迪士尼玩一下，當作幼稚園的畢業旅行。 這一趟選擇了跟團。有了韓國行的經驗，這次特別選了不進免稅店的行程</description>
+    </item>
     <item>
       <title>Fail to request irq with log &#39;irq: type mismatch&#39;</title>
       <link>https://tfing.github.io/posts/2024/07/05/fail-to-request-irq-with-log-irq-type-mismatch/</link>
@@ -20,8 +27,7 @@
       <link>https://tfing.github.io/posts/2024/06/18/note-of-option/</link>
       <pubDate>Tue, 18 Jun 2024 14:12:25 +0800</pubDate>
       <guid>https://tfing.github.io/posts/2024/06/18/note-of-option/</guid>
-      <description>What&amp;rsquo;s Option 🔗Option is a contract that derivated from the underlying stock. It gives the contract buyer the right to buy or sell the stock at a certain price before a certain date. the certain price is called &amp;lsquo;strike price&amp;rsquo;. the certin date is called &amp;rsquo;expiration date&amp;rsquo;.
-If user A buys a contract with the right to buy the stock from user B, user A can decide when to execute the contract before expiration date.</description>
+      <description>What&amp;rsquo;s Option 🔗Option is a contract that derivated from the underlying stock. It gives the contract buyer the right to buy or sell the stock at a certain price before a certain date. the certain price is called &amp;lsquo;strike price&amp;rsquo;. the certin date is called &amp;rsquo;expiration date&amp;rsquo;.&#xA;If user A buys a contract with the right to buy the stock from user B, user A can decide when to execute the contract before expiration date.</description>
     </item>
     <item>
       <title>2024 年前的韓國行</title>
@@ -35,17 +41,14 @@ If user A buys a contract with the right to buy the stock from user B, user A ca
       <link>https://tfing.github.io/posts/2024/01/17/failed-to-probe-2-ns16550-uart-node-at-kernel-6.1/</link>
       <pubDate>Wed, 17 Jan 2024 16:39:18 +0800</pubDate>
       <guid>https://tfing.github.io/posts/2024/01/17/failed-to-probe-2-ns16550-uart-node-at-kernel-6.1/</guid>
-      <description>Today I got the following kernel error message when boot to probe uart 1 serial drive.
-kobject_add_internal failed for 10060000.serial with -EEXIST, don&amp;#39;t try to register things with the same name in the same directory When I got this error, I was do an experiment to let the ttyS0 could use the uart 1 driver to print kernel log. My dts is like following for the experiment.
-uart0: serial@10001000 { compatible = &amp;#34;ns16550&amp;#34;; reg = &amp;lt;0 0x10001000 0 0x1000&amp;gt;&amp;#39;&amp;#39; //.</description>
+      <description>Today I got the following kernel error message when boot to probe uart 1 serial drive.&#xA;kobject_add_internal failed for 10060000.serial with -EEXIST, don&amp;#39;t try to register things with the same name in the same directory When I got this error, I was do an experiment to let the ttyS0 could use the uart 1 driver to print kernel log. My dts is like following for the experiment.&#xA;uart0: serial@10001000 { compatible = &amp;#34;ns16550&amp;#34;; reg = &amp;lt;0 0x10001000 0 0x1000&amp;gt;&amp;#39;&amp;#39; //.</description>
     </item>
     <item>
       <title>Local test disqus on Hugo</title>
       <link>https://tfing.github.io/posts/2024/01/11/local-test-disqus-on-hugo/</link>
       <pubDate>Thu, 11 Jan 2024 11:23:00 +0800</pubDate>
       <guid>https://tfing.github.io/posts/2024/01/11/local-test-disqus-on-hugo/</guid>
-      <description>I noticed that the disqus reaction buttons are enabled after install disqus comment system on my site. I feel that the buttons on my site is too significant and I doesn&amp;rsquo;t need the reaction statistics. So, I decides to disable the reaction buttons.
-I was thought that I have to modify the hugo template to achieve this. So, I find the way to test the theme on the hugo local server.</description>
+      <description>I noticed that the disqus reaction buttons are enabled after install disqus comment system on my site. I feel that the buttons on my site is too significant and I doesn&amp;rsquo;t need the reaction statistics. So, I decides to disable the reaction buttons.&#xA;I was thought that I have to modify the hugo template to achieve this. So, I find the way to test the theme on the hugo local server.</description>
     </item>
     <item>
       <title>大人學 podcast 筆記</title>
@@ -66,8 +69,7 @@ I was thought that I have to modify the hugo template to achieve this. So, I fin
       <link>https://tfing.github.io/posts/2023/12/04/setup-github-ssh-connection/</link>
       <pubDate>Mon, 04 Dec 2023 06:10:26 -0500</pubDate>
       <guid>https://tfing.github.io/posts/2023/12/04/setup-github-ssh-connection/</guid>
-      <description>&lt;p&gt;Setup the ssh connection of my laptop with Github by following the steps in the &lt;a href=&#34;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github SSH tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Following is the record of my setup. It&amp;rsquo;s a simplified version of the Github tutorial.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Setup the ssh connection of my laptop with Github by following the steps in the &lt;a href=&#34;https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github SSH tutorial&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Following is the record of my setup. It&amp;rsquo;s a simplified version of the Github tutorial.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Note of using Hugo</title>
@@ -88,16 +90,7 @@ I was thought that I have to modify the hugo template to achieve this. So, I fin
       <link>https://tfing.github.io/posts/2023/02/17/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</link>
       <pubDate>Fri, 17 Feb 2023 14:29:53 +0800</pubDate>
       <guid>https://tfing.github.io/posts/2023/02/17/%E7%9F%9B%E7%9B%BE%E7%9A%84%E6%83%B3%E6%B3%95/</guid>
-      <description>&lt;p&gt;從 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&lt;/a&gt; 看到了這兩段文字。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;3、
-我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。&lt;/p&gt;
-&lt;p&gt;我担心编程会变得太无聊，因为你没有机会做任何新鲜事。你的兴奋来自于看到机器产生出来的有趣结果，而不是来自创造新事物的过程。现在的乐趣变成，当你完成无聊的工作后，会突然得到一个很棒的结果，但在以前，工作本身并不乏味。&lt;/p&gt;
-&lt;p&gt;&amp;ndash; Donald Knuth&lt;/p&gt;
-&lt;p&gt;4、
-大多数编程不再是艺术，也不再是高级工程。大多数程序都是微不足道的：编码人员只需要理解某些特定的接口，然后编写一些逻辑和胶水代码。&lt;/p&gt;
-&lt;p&gt;&amp;ndash; Antirez，Redis 的作者&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;p&gt;從 &lt;a href=&#34;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.ruanyifeng.com/blog/2023/02/weekly-issue-241.html&lt;/a&gt; 看到了這兩段文字。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;3、&#xA;我真正担心的是，今天的很多编程没有任何乐趣，它只是集合别人的软件，把组件拼起来并启动，不需要太多的创造力。&lt;/p&gt;&#xA;&lt;p&gt;我担心编程会变得太无聊，因为你没有机会做任何新鲜事。你的兴奋来自于看到机器产生出来的有趣结果，而不是来自创造新事物的过程。现在的乐趣变成，当你完成无聊的工作后，会突然得到一个很棒的结果，但在以前，工作本身并不乏味。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ndash; Donald Knuth&lt;/p&gt;&#xA;&lt;p&gt;4、&#xA;大多数编程不再是艺术，也不再是高级工程。大多数程序都是微不足道的：编码人员只需要理解某些特定的接口，然后编写一些逻辑和胶水代码。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ndash; Antirez，Redis 的作者&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>
       <title>First post</title>

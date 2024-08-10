@@ -9,7 +9,7 @@
 <meta name="description" content="Today I got the following kernel error message when boot to probe uart 1 serial drive.
 kobject_add_internal failed for 10060000.serial with -EEXIST, don&#39;t try to register things with the same name in the same directory When I got this error, I was do an experiment to let the ttyS0 could use the uart 1 driver to print kernel log. My dts is like following for the experiment.
 uart0: serial@10001000 { compatible = &#34;ns16550&#34;; reg = &lt;0 0x10001000 0 0x1000&gt;&#39;&#39; //.">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.131.0">
 
 
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -20,7 +20,7 @@ uart0: serial@10001000 { compatible = &#34;ns16550&#34;; reg = &lt;0 0x10001000 
 
   
     
-    <link rel="stylesheet" href="https://tfing.github.iocss/single.css">
+    <link rel="stylesheet" href="https://tfing.github.io/css/single.css">
   
 
 
@@ -28,16 +28,25 @@ uart0: serial@10001000 { compatible = &#34;ns16550&#34;; reg = &lt;0 0x10001000 
 
  
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
-}
-</script>
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-EW6W66PLM4');
+        }
+      </script>
+    
+  
+
 
 
 
@@ -59,8 +68,6 @@ if (!doNotTrack) {
 
 	
 
-	
-	  <a class="button" href="https://tfing.github.io/index.xml">Subscribe</a>
 	
 </nav>
 
@@ -147,7 +154,7 @@ I feel that this is not the expected behavior. Maybe there&rsquo;s something tha
   <div id="comment">
     
     <div id="disqus_thread"></div>
-<script type="application/javascript">
+<script>
     window.disqus_config = function () {
     
     
