@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 <meta name="description" content="Record info/links/commands used to setup this site and post articles.">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.120.4">
 
 
   <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
@@ -18,7 +18,7 @@
 
   
     
-    <link rel="stylesheet" href="https://tfing.github.io/css/single.css">
+    <link rel="stylesheet" href="https://tfing.github.iocss/single.css">
   
 
 
@@ -26,25 +26,16 @@
 
  
   
-  
-    
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
-      <script>
-        var doNotTrack = false;
-        if ( false ) {
-          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
-          var doNotTrack = (dnt == "1" || dnt == "yes");
-        }
-        if (!doNotTrack) {
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-EW6W66PLM4');
-        }
-      </script>
-    
-  
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EW6W66PLM4"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-EW6W66PLM4', { 'anonymize_ip': false });
+}
+</script>
 
 
 
@@ -82,7 +73,7 @@
           ·
         </span>
         <span>
-          202 words
+          204 words
         </span>
         <span class="split">
           ·
@@ -105,6 +96,9 @@
   <ul>
     <li><a href="#add-post">Add post</a>
       <ul>
+        <li><a href="#post-summary">Post summary</a></li>
+        <li><a href="#toc">TOC</a></li>
+        <li><a href="#pre-view-drafts">Pre-view drafts</a></li>
         <li><a href="#deploy">Deploy</a></li>
       </ul>
     </li>
@@ -128,13 +122,13 @@
 
     <div class="content">
       <p>Record info/links/commands used to setup this site and post articles.</p>
-<p>offcial site: <a href="https://gohugo.io/getting-started/usage/" target="_blank" rel="noopener">https://gohugo.io/getting-started/usage/</a>
-markdown syntax: <a href="https://www.markdownguide.org/tools/hugo/" target="_blank" rel="noopener">https://www.markdownguide.org/tools/hugo/</a></p>
+<p>offcial site: <a href="https://gohugo.io/getting-started/usage/" target="_blank" rel="noopener">https://gohugo.io/getting-started/usage/</a></p>
+<p>markdown syntax: <a href="https://www.markdownguide.org/tools/hugo/" target="_blank" rel="noopener">https://www.markdownguide.org/tools/hugo/</a></p>
 <h2 id="add-post">Add post <a href="#add-post" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new content/posts/&lt;post-name&gt;.md<span style="color:#a6e3a1">`</span>
-</span></span></code></pre></div><p>Insert <code>&lt;!--more--&gt;</code> in the post to identify the content showed as summary.</p>
-<p>Add <code>showToc: true</code> in the head of post to add table of contents in the post.</p>
-<p>pre-view drafts: <code>hugo server -D --config config.yaml,config.toml</code></p>
-<h3 id="deploy">Deploy <a href="#deploy" class="anchor">🔗</a></h3><p>generate the public folder for deploy on Github.
+</span></span></code></pre></div><h3 id="post-summary">Post summary <a href="#post-summary" class="anchor">🔗</a></h3><p>Insert <code>&lt;!--more--&gt;</code> in the post to identify the content showed as summary.</p>
+<h3 id="toc">TOC <a href="#toc" class="anchor">🔗</a></h3><p>Add <code>showToc: true</code> in the head of post to add table of contents in the post.</p>
+<h3 id="pre-view-drafts">Pre-view drafts <a href="#pre-view-drafts" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D --config config.yaml,config.toml
+</span></span></code></pre></div><h3 id="deploy">Deploy <a href="#deploy" class="anchor">🔗</a></h3><p>generate the public folder for deploy on Github.
 the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
 <div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f5e0dc">HUGO_ENV</span><span style="color:#89dceb;font-weight:bold">=</span>production hugo --config config.yaml,config.toml
 </span></span></code></pre></div><p>copy the generated public folder to the github page repo</p>
@@ -142,8 +136,8 @@ the <code>HUGO_ENV=production</code> is MUST to enable google analytics.</p>
 </span></span><span style="display:flex;"><span>rsync -ahv public/ ../tfing.github.io/ --delete --exclude<span style="color:#89dceb;font-weight:bold">=</span>.git
 </span></span></code></pre></div><p>After copy done, commit and push to github.
 check <a href="https://tfing.github.io" target="_blank" rel="noopener">https://tfing.github.io</a> for the result.</p>
-<h2 id="update-theme">Update theme <a href="#update-theme" class="anchor">🔗</a></h2><p>do <code>hugo mod get -u</code></p>
-<h3 id="install-theme-by-hugo-module">Install theme by Hugo module <a href="#install-theme-by-hugo-module" class="anchor">🔗</a></h3><p>ref: <a href="https://scripter.co/hugo-modules-importing-a-theme/" target="_blank" rel="noopener">https://scripter.co/hugo-modules-importing-a-theme/</a></p>
+<h2 id="update-theme">Update theme <a href="#update-theme" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="color:#cdd6f4;background-color:#1e1e2e;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo mod get -u<span style="color:#a6e3a1">`</span>
+</span></span></code></pre></div><h3 id="install-theme-by-hugo-module">Install theme by Hugo module <a href="#install-theme-by-hugo-module" class="anchor">🔗</a></h3><p>ref: <a href="https://scripter.co/hugo-modules-importing-a-theme/" target="_blank" rel="noopener">https://scripter.co/hugo-modules-importing-a-theme/</a></p>
 <ol>
 <li>Init the site to be a hugo module and create the config.toml file</li>
 </ol>
@@ -182,7 +176,7 @@ check <a href="https://tfing.github.io" target="_blank" rel="noopener">https://t
   <div id="comment">
     
     <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     window.disqus_config = function () {
     
     
